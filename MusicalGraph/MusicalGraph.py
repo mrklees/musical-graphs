@@ -13,7 +13,7 @@ class MusicalGraph(object):
         self.initialize_graph()
 
     def initialize_graph(self):
-        if os.path.exists(GRAPH_PATH):
+        if os.path.exists(self.write_path):
             print("Reading in graph")
             self.G = nx.read_gpickle(self.write_path)
         else:
