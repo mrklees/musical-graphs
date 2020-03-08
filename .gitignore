@@ -28,6 +28,7 @@ __pycache__
 
 # data
 pgdata
+*.pickle
 
 # secrets
 .secrets
