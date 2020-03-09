@@ -8,7 +8,7 @@ class MusicalGraph(object):
     Our graph will have nodes of many types includes artists, songs, and genres. 
     This will ideally help us identify relationships between artists. 
     """
-    def __init__(self, write_path='data/graph.pickle'):
+    def __init__(self, write_path='data/build/graph.pickle'):
         self.write_path = write_path
         self.initialize_graph()
 
