@@ -1,5 +1,7 @@
 spotipy
 requests
-apache-airflow
 nose
-azure-storage-blob==2.1.*
+streamlit
+bokeh
+holoviews[recommended]
+networkx
