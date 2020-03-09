@@ -1,4 +1,5 @@
 spotipy
 requests
-airflow
+apache-airflow
 nose
+azure-storage-blob==2.1.*
