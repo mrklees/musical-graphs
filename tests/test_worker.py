@@ -5,25 +5,25 @@ from MusicalGraph.Worker import Worker
 
 
 def setup_func():
-    gpath = "/data/test.pickle"
+    gpath = "./data/test/test.pickle"
     if os.path.exists(gpath):
         os.remove(gpath)
-    MusicalGraph("/data/test.pickle")
+    MusicalGraph(gpath)
 
 
 def cleanup_func():
-    os.remove("/data/test.pickle")
+    os.remove("./data/test/test.pickle")
 
 
 @with_setup(setup_func, cleanup_func)
 def test_credential():
-    graph = MusicalGraph("/data/test.pickle")
+    graph = MusicalGraph("./data/test/test.pickle")
     worker = Worker(graph)
     worker.generate_token()
 
 
 def test_add_str_artsts():
-    graph = MusicalGraph("/data/test.pickle")
+    graph = MusicalGraph("./data/test/test.pickle")
     worker = Worker(graph)
     try:
         worker.add_artists("Logic")
@@ -32,21 +32,21 @@ def test_add_str_artsts():
 
 
 def test_add_list_artsts():
-    graph = MusicalGraph("/data/test.pickle")
+    graph = MusicalGraph("./data/test/test.pickle")
     worker = Worker(graph)
     worker.add_artists(["Logic"])
     assert "Logic" in graph.G.nodes
 
 
 def test_search():
-    graph = MusicalGraph("/data/test.pickle")
+    graph = MusicalGraph("./data/test/test.pickle")
     worker = Worker(graph)
     response = worker.search_for_artist("Logic")
     assert response['name'] == "Logic"
 
 
 def test_search_process():
-    graph = MusicalGraph("/data/test.pickle")
+    graph = MusicalGraph("./data/test/test.pickle")
     worker = Worker(graph)
     response = worker.search_for_artist("Logic")
     processed = worker.get_artist_meta(response)
@@ -56,7 +56,7 @@ def test_search_process():
 
 
 def test_add_genre():
-    graph = MusicalGraph("/data/test.pickle")
+    graph = MusicalGraph("./data/test/test.pickle")
     worker = Worker(graph)
     worker.add_artists(["Logic"])
     worker.add_genres(['Logic'])

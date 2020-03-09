@@ -4,15 +4,15 @@ from MusicalGraph.MusicalGraph import MusicalGraph
 
 
 def setup_func():
-    gpath = "/data/test.pickle"
+    gpath = "./data/test/test.pickle"
     if os.path.exists(gpath):
         os.remove(gpath)
 
 
 def cleanup_func():
-    os.remove("/data/test.pickle")
+    os.remove("./data/test/test.pickle")
 
 
 @with_setup(setup_func, cleanup_func)
 def test_initialize_graph():
-    MusicalGraph("/data/test.pickle")
+    MusicalGraph("./data/test/test.pickle")
